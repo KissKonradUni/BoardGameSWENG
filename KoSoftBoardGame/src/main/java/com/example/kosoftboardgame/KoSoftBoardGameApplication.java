@@ -13,7 +13,7 @@ public class KoSoftBoardGameApplication {
         SpringApplication.run(KoSoftBoardGameApplication.class, args);
     }
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String hello() {
         return "Hello, World!";
     }
