@@ -1,9 +1,10 @@
-package com.example.kosoftboardgame;
+package app.kosoft.boardgame;
 
 public class User {
 
     private String name;
     private String passwd;
+    private int id;
 
     public User(String name, String passwd, int id) {
         this.name = name;
@@ -18,9 +19,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
-    private int id;
-
 
     public String getName() {
         return name;
@@ -42,4 +40,5 @@ public class User {
                 ", id=" + id +
                 '}';
     }
+
 }
