@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div th:if="${param.invalid_email}" class="message error">
+        Invalid email. Please enter a valid email address.
+    </div>
+    <div th:if="${param.invalid_username}" class="message error">
+        Invalid username. Username must be at least 4 characters long,<br>
+        contain only letters, digits, and it may contain ._ and - characters.
+    </div>
+    <div th:if="${param.invalid_password}" class="message error">
+        Invalid password. Password must be at least 8 characters long,<br>
+        contain at least one uppercase letter, one lowercase letter, one digit<br>
+        and one special character.
+    </div>
+    <div th:if="${param.username_exists}" class="message error">
+        Username already exists. Please choose another one.
+    </div>
+    <div th:if="${param.email_exists}" class="message error">
+        Email already exists. Please choose another one.
+    </div>
+    <main>
+        <h1 style="text-align: center">Registration</h1>
+        <form action="/register" method="post">
+            <label>
+                <input type="text" name="username" placeholder="Username"/>
+            </label>
+            <br>
+            <label>
+                <input type="email" name="email" placeholder="E-mail"/>
+            </label>
+            <br>
+            <label>
+                <input type="password" name="password" placeholder="Password"/>
+            </label>
+            <br>
+            <input type="submit" value="Register"/>
+            <div style="height: 1rem"></div>
+        </form>
+    </main>
+</body>
+</html>

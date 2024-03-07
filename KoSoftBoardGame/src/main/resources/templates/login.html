@@ -11,6 +11,9 @@
     <div th:if="${param.logout}" class="message info">
         You have been logged out.
     </div>
+    <div th:if="${param.registered}" class="message info">
+        You have been registered. Try to log in.
+    </div>
     <main>
         <h1>Please Log In</h1>
         <form th:action="@{/login}" method="post">

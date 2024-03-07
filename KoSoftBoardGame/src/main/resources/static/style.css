@@ -62,7 +62,7 @@ a.a-button:hover, input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
     display: block;
     padding: 0.5rem 1rem;
     margin: 0;
@@ -83,7 +83,7 @@ input[type="text"], input[type="password"] {
     transition: background-color 0.1s ease-in-out;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
     background-color: #f0f0f0;
 }
 

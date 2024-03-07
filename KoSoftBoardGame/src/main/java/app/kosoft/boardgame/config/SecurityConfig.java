@@ -1,14 +1,14 @@
-package app.kosoft.boardgame;
+package app.kosoft.boardgame.config;
 
+import app.kosoft.boardgame.data.AccountDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 
@@ -22,26 +22,9 @@ import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuc
 @EnableWebSecurity
 public class SecurityConfig {
 
-    /**
-     * Konfigurációs metódus, amely egy InMemoryUserDetailsManager objektumot hoz létre.
-     * Ezzel a felhasználók adatait tárolhatjuk memóriában, még adatbázis használata nélkül.
-     * @return InMemoryUserDetailsManager objektum
-     */
     @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user1 = User.withUsername("user1")
-            .password(passwordEncoder().encode("user1Pass"))
-            .roles("USER")
-            .build();
-        UserDetails user2 = User.withUsername("user2")
-            .password(passwordEncoder().encode("user2Pass"))
-            .roles("USER")
-            .build();
-        UserDetails admin = User.withUsername("admin")
-            .password(passwordEncoder().encode("adminPass"))
-            .roles("ADMIN")
-            .build();
-        return new InMemoryUserDetailsManager(user1, user2, admin);//store users in memory
+    public AccountDetailsService accountDetailsService() {
+        return new AccountDetailsService();
     }
 
     /**
@@ -64,7 +47,9 @@ public class SecurityConfig {
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((authorize) -> authorize
+        http.csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
+            .httpBasic(Customizer.withDefaults())
+            .authorizeHttpRequests((authorize) -> authorize
                 .requestMatchers(
                     "/",
                     "/login",
@@ -98,4 +83,5 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 }

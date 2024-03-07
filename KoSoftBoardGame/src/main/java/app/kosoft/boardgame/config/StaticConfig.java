@@ -1,4 +1,4 @@
-package app.kosoft.boardgame;
+package app.kosoft.boardgame.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;

@@ -1,0 +1,8 @@
+{
+  "HOST": "localhost",
+  "PORT": 8000,
+  "USER": "root",
+  "PASSWORD": "root",
+  "NAMESPACE": "kosoft",
+  "DATABASE": "boardgames"
+}
