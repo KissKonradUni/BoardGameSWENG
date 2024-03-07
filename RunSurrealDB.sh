@@ -1,1 +1,1 @@
-surreal start memory -A --auth --user root --pass root
+surreal start file://./surrealdb.db -A --auth --user root --pass root

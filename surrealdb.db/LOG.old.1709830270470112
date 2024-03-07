@@ -1,0 +1,1 @@
+2024/03/07-17:48:05.597151 127384032944128 [WARN] [db/db_impl/db_impl_open.cc:2074] DB::Open() failed: IO error: While lock file: surrealdb.db/LOCK: Resource temporarily unavailable
