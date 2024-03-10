@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * A template alapú oldalak vezérlője.
  */
 @Controller
-class TemplateControllers {
+class Controllers {
     @GetMapping("/")
     String index() {
         return "index";
