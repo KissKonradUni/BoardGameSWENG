@@ -7,21 +7,21 @@
     <title>KőSoft BoardGames</title>
 </head>
 <body>
-    <main>
-        <h1 class="title">Welcome to KőSoft BoardGames</h1>
-        <div th:if="${#authorization.expression('isAuthenticated()')}">
-            <!-- Csak így lehet Spring Securityvel kijelentkezni -->
-            <p>Logged in as: <span th:text="${#authentication.name}">Name</span></p>
-            <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Log out" class="a-button" style="width: 100%">
-            </form>
-        </div>
-        <div th:if="${!#authorization.expression('isAuthenticated()')}">
-            <a href="/login" class="a-button">Log in</a>
-        </div>
-        <br>
-        <a href="/register" class="a-button">Register</a>
-        <br>
-    </main>
+<main>
+    <h1 class="title">Welcome to KőSoft BoardGames</h1>
+    <div th:if="${#authorization.expression('isAuthenticated()')}">
+        <!-- Csak így lehet Spring Securityvel kijelentkezni -->
+        <p>Logged in as: <span th:text="${#authentication.name}">Name</span></p>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Log out" class="a-button" style="width: 100%">
+        </form>
+    </div>
+    <div th:if="${!#authorization.expression('isAuthenticated()')}">
+        <a href="/login" class="a-button">Log in</a>
+    </div>
+    <br>
+    <a href="/register" class="a-button">Register</a>
+    <br>
+</main>
 </body>
 </html>

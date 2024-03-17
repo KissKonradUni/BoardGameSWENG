@@ -1,20 +1,24 @@
 package app.kosoft.boardgame;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name="users")
 public class User {
 
-    @GeneratedValue
+    @Getter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
+    @Getter
     private String username;
+    private String email;
+    @Setter
     private String passwd;
+
 
 
     public User(String name, String passwd, long id) {
@@ -25,11 +29,6 @@ public class User {
 
     protected User() {}
 
-
-
-    public long getId() {
-        return id;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -44,10 +43,6 @@ public class User {
     }
 
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -56,12 +51,15 @@ public class User {
                 '}';
     }
 
-    public String getUsername() {
-
-        return username;
-    }
-
     public String getPassword() {
         return passwd;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
