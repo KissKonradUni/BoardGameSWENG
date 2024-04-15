@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/game.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/game.js" defer></script>
+    <title>KőSoft BoardGames</title>
+</head>
+<body>
+<main>
+    <div class="userdata">
+        <span>
+            <b>Player name: </b><span id="playerName">John Doe</span>
+        </span>
+        <span>
+            Family of <b id="familyName">Example</b>
+        </span>
+        <div></div>
+        <span>
+            <b>Title: </b><span id="title">Player</span>
+        </span>
+        <span>
+            <div id="imgHolder"><img src="https://picsum.photos/200" alt="Profile picture" id="profilePicture"></div>
+        </span>
+        <div></div>
+    </div>
+    <div class="board">
+        <canvas id="gameboard" width="1422" height="1422">
+
+        </canvas>
+    </div>
+</main>
+</body>
+</html>
