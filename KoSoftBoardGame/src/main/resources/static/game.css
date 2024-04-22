@@ -14,8 +14,23 @@ div.board {
     margin-bottom: 1rem;
 }
 
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
 main {
     min-width: auto !important;
+}
+
+.rules, .cardsAndPoints {
+    flex: 1;
+    width: 100%;
+
+    min-width: 0 !important;
 }
 
 div.userdata {

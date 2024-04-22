@@ -6,12 +6,27 @@ const borderWidth = 1;
 const squareSize = 128;
 const boardSize = 11;
 
+let tiles = null;
+async function loadTiles() {
+    tiles = await fetch("/static/tiles.png").then(res => res.blob()).then(blob => createImageBitmap(blob));
+} loadTiles();
+/** 3x3 atlas */
+const atlas = {
+    "tree" : { x: 0, y: 0,         color: "#228B2230"},
+    "house" : { x: 128, y: 0,      color: "#fB451330"},
+    "field" : { x: 256, y: 0,      color: "#CDcd3260"},
+    "water" : { x: 0, y: 128,      color: "#0000FF30"},
+    "monster" : { x: 128, y: 128,  color: "#FF008830"},
+    "mountain" : { x: 256, y: 128, color: "#8B451330"},
+    "ruins" : { x: 0, y: 256,      color: "#80808030"},
+}
+
 class Piece {
     constructor(shape, fill, x, y, rotation, special) {
         this.x = x ?? 0;
         this.y = y ?? 0;
         this.shape = shape ?? [[0, 0, 1], [1, 1, 1]];
-        this.fill = fill ?? "green";
+        this.fill = fill ?? "tree";
         this.rotation = 0; // 0, 90, 180, 270
         this.special = special ?? null; // hill, ruin
         this.rotate(rotation ?? 0);
@@ -56,11 +71,20 @@ class Piece {
             return;
         }
 
-        ctx.fillStyle = this.fill;
+        if (tiles == null)
+            return;
+
+        ctx.fillStyle = atlas[this.fill].color;
         for (let i = 0; i < this.shape.length; i++) {
             for (let j = 0; j < this.shape[i].length; j++) {
                 if (this.shape[i][j] === 1) {
                     ctx.fillRect(
+                        j * squareSize + this.x * squareSize + borderWidth * (this.x + j),
+                        i * squareSize + this.y * squareSize + borderWidth * (this.y + i),
+                        squareSize + 1,
+                        squareSize + 1
+                    );
+                    ctx.drawImage(tiles, atlas[this.fill].x, atlas[this.fill].y, 128, 128,
                         j * squareSize + this.x * squareSize + borderWidth * (this.x + j),
                         i * squareSize + this.y * squareSize + borderWidth * (this.y + i),
                         squareSize + 1,
@@ -77,13 +101,20 @@ class Piece {
      */
     drawHill(ctx) {
         ctx.fillStyle = "#8B4513";
-        ctx.beginPath();
         let x = this.x * squareSize + borderWidth * (this.x);
         let y = this.y * squareSize + borderWidth * (this.y);
-        ctx.moveTo(x + squareSize * 0.15, y + squareSize * 0.85);
-        ctx.lineTo(x + squareSize * 0.85, y + squareSize * 0.85);
-        ctx.lineTo(x + squareSize * 0.50, y + squareSize * 0.25);
-        ctx.fill();
+        
+        if (tiles == null)
+            return;
+        
+        ctx.fillStyle = atlas["mountain"].color;
+        ctx.fillRect(x, y, 128, 128);
+
+        ctx.drawImage(tiles, atlas["mountain"].x, atlas["mountain"].y, 128, 128,
+            x, y,
+            squareSize + 1,
+            squareSize + 1
+        );
     }
 
     /**
@@ -96,9 +127,17 @@ class Piece {
         let x = this.x * squareSize + borderWidth * (this.x);
         let y = this.y * squareSize + borderWidth * (this.y);
 
-        // three pillars
-        ctx.fillRect(x + squareSize * 0.25, y + squareSize * 0.20, squareSize * 0.25, squareSize * 0.65);
-        ctx.fillRect(x + squareSize * 0.70, y + squareSize * 0.30, squareSize * 0.1, squareSize * 0.55);
+        if (tiles == null)
+            return;
+
+        ctx.fillStyle = atlas["ruins"].color;
+        ctx.fillRect(x, y, 128, 128);
+
+        ctx.drawImage(tiles, atlas["ruins"].x, atlas["ruins"].y, 128, 128,
+            x, y,
+            squareSize + 1,
+            squareSize + 1
+        );
     }
 }
 
@@ -116,7 +155,9 @@ class Board {
      * @param {CanvasRenderingContext2D} ctx 
      */
     drawBoard(ctx) {
-        ctx.fillStyle = "white";
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#ffffff88";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         for (let i = 0; i < this.pieces.length; i++) {
@@ -159,15 +200,15 @@ class Game {
 
 const game = new Game();
 game.board.placePiece(new Piece());
-game.board.placePiece(new Piece([[1, 1], [1, 1]], "red", 4, 0));
-game.board.placePiece(new Piece([[1, 1, 1], [1, 1]], "blue", 1, 3, 0));
-game.board.placePiece(new Piece([[1], [1, 1]], "orange", 5, 3, 90));
-const funnyPiece = new Piece([[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0]], "purple", 5, 5, 0);
+game.board.placePiece(new Piece([[1, 1], [1, 1]], "house", 4, 0));
+game.board.placePiece(new Piece([[1, 1, 1], [1, 1]], "water", 1, 3, 0));
+game.board.placePiece(new Piece([[1], [1, 1]], "field", 5, 3, 90));
+const funnyPiece = new Piece([[1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0]], "monster", 5, 5, 0);
 game.board.placePiece(funnyPiece);
 // hill
-game.board.placePiece(new Piece([[1, 1], [1, 1]], "green", 0, 7, 0, "hill"));
+game.board.placePiece(new Piece([[1, 1], [1, 1]], "mountain", 0, 7, 0, "hill"));
 // ruin
-game.board.placePiece(new Piece([[1, 1], [1, 1]], "green", 2, 7, 0, "ruin"));
+game.board.placePiece(new Piece([[1, 1], [1, 1]], "ruin", 2, 7, 0, "ruin"));
 game.board.drawBoard(ctx);
 
 setInterval(() => {

@@ -14,7 +14,7 @@ html {
     height: 100%;
 }
 
-main {
+main, .rules, .cardsAndPoints {
     min-width: 40rem;
     min-height: 5rem;
 
