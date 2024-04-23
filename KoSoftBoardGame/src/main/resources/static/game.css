@@ -20,6 +20,7 @@ body {
     grid-template-rows: 1fr;
     gap: 1rem;
     padding: 1rem;
+    overflow: hidden;
 }
 
 main {
@@ -31,6 +32,35 @@ main {
     width: 100%;
 
     min-width: 0 !important;
+}
+
+.rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+.rules > img, .cardsAndPoints > .line > img {
+    width: 100%;
+    height: auto;
+    align-self: center;
+    border-radius: 0.5rem;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardsAndPoints {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
 }
 
 div.userdata {

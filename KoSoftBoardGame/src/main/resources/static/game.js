@@ -12,13 +12,13 @@ async function loadTiles() {
 } loadTiles();
 /** 3x3 atlas */
 const atlas = {
-    "tree" : { x: 0, y: 0,         color: "#228B2230"},
-    "house" : { x: 128, y: 0,      color: "#fB451330"},
-    "field" : { x: 256, y: 0,      color: "#CDcd3260"},
-    "water" : { x: 0, y: 128,      color: "#0000FF30"},
-    "monster" : { x: 128, y: 128,  color: "#FF008830"},
-    "mountain" : { x: 256, y: 128, color: "#8B451330"},
-    "ruins" : { x: 0, y: 256,      color: "#80808030"},
+    "tree" :     { x: 0,   y: 0,   color: "#228B2230" },
+    "house" :    { x: 128, y: 0,   color: "#fB451330" },
+    "field" :    { x: 256, y: 0,   color: "#CDcd3260" },
+    "water" :    { x: 0,   y: 128, color: "#0000FF30" },
+    "monster" :  { x: 128, y: 128, color: "#FF008830" },
+    "mountain" : { x: 256, y: 128, color: "#8B451330" },
+    "ruins" :    { x: 0,   y: 256, color: "#80808030" },
 }
 
 class Piece {
