@@ -1,0 +1,113 @@
+[
+    {
+        "name":"Sentinel Wood",
+        "url":"26.jpg",
+        "season":"A",
+        "function":"checkForestEdge()"
+    },
+
+    {
+        "name":"Greenbough",
+        "url":"27.jpg",
+        "season":"A",
+        "function":"checkForestRowColumn()"
+    },
+
+    {
+        "name":"Treetower",
+        "url":"28.jpg",
+        "season":"A",
+        "function":"checkForestSurrounded()"
+    },
+
+    {
+        "name":"Stoneside Forest",
+        "url":"29.jpg",
+        "season":"A",
+        "function":"checkForestMountainBridge()"
+    },
+
+    {
+        "name":"Canal Lake",
+        "url":"30.jpg",
+        "season":"B",
+        "function":"checkWaterByField()"
+    },
+
+    {
+        "name":"Mages Valley",
+        "url":"31.jpg",
+        "season":"B",
+        "function":"checkWaterFieldToMountain()"
+    },
+
+    {
+        "name":"The Golden Granary",
+        "url":"32.jpg",
+        "season":"B",
+        "function":"checkWaterFieldToRuin()"
+    },
+
+    {
+        "name":"Shoreside Expanse",
+        "url":"33.jpg",
+        "season":"B",
+        "function":"checkWaterFieldNotNext()"
+    },
+
+    {
+        "name":"Wildholds",
+        "url":"34.jpg",
+        "season":"C",
+        "function":"checkHouseBiggerThan()"
+    },
+
+    {
+        "name":"Great City",
+        "url":"35.jpg",
+        "season":"C",
+        "function":"checkHouseBiggestNotMountain()"
+    },
+
+    {
+        "name":"Greengold Plains",
+        "url":"36.jpg",
+        "season":"C",
+        "function":"checkHouseNextToDifferents()"
+    },
+
+    {
+        "name":"Shieldgate",
+        "url":"37.jpg",
+        "season":"C",
+        "function":"checkHouseSecondBiggest()"
+    },
+
+    {
+        "name":"Borderlands",
+        "url":"38.jpg",
+        "season":"D",
+        "function":"checkComplitedRowColumn()"
+    },
+
+    {
+        "name":"Lost Barony",
+        "url":"39.jpg",
+        "season":"D",
+        "function":"checkBiggestFilledSquare()"
+    },
+
+    {
+        "name":"The Broken Road",
+        "url":"40.jpg",
+        "season":"D",
+        "function":"checkCompetedDiagonal()"
+    },
+
+    {
+        "name":"The Cauldrons",
+        "url":"41.jpg",
+        "season":"D",
+        "function":"checkSurrendedEmpty()"
+    }
+]
