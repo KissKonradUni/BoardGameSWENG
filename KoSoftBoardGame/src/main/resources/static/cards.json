@@ -1,0 +1,330 @@
+[
+    {
+        "name":"Goblin Attack",
+        "url":"1.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [0, 1, 0],
+                [0, 0, 1]
+            ]
+        ],
+        "fill":"monster",
+        "coin":0,
+        "cost":0
+    },
+
+    {
+        "name":"Bugbear Assault",
+        "url":"2.jpg",
+        "shape":[
+            [
+                [1, 0, 1], 
+                [1, 0, 1],
+                [0, 0, 0]
+            ]
+        ],
+        "fill":"monster",
+        "coin":0,
+        "cost":0
+    },
+
+    {
+        "name":"Kobold Onslaught",
+        "url":"3.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [1, 1, 0],
+                [1, 0, 0]
+            ]
+        ],
+        "fill":"monster",
+        "coin":0,
+        "cost":0
+    },
+
+    {
+        "name":"Gnoll Raid",
+        "url":"4.jpg",
+        "shape":[
+            [
+                [1, 1, 0], 
+                [1, 0, 0],
+                [1, 1, 0]
+            ]
+        ],
+        "fill":"monster",
+        "coin":0,
+        "cost":0
+    },
+
+    {
+        "name":"Great River",
+        "url":"7.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [1, 0, 0],
+                [1, 0, 0]
+            ],
+
+            [
+                [0, 0, 1], 
+                [0, 1, 1],
+                [1, 1, 0]
+            ]
+        ],
+        "fill":[
+            "water",
+            "water"
+        ],
+        "coin":[1,0],
+        "cost":1
+    },
+
+    {
+        "name":"Farmland",
+        "url":"8.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [1, 0, 0],
+                [0, 0, 0]
+            ],
+
+            [
+                [0, 1, 0], 
+                [1, 1, 1],
+                [0, 1, 0]
+            ]
+        ],
+        "fill":[
+            "field",
+            "field"
+        ],
+        "coin":[1,0],
+        "cost":1
+    },
+
+    {
+        "name":"Hamlet",
+        "url":"9.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [1, 1, 0],
+                [0, 0, 0]
+            ],
+
+            [
+                [1, 1, 1], 
+                [1, 1, 0],
+                [0, 0, 0]
+            ]
+        ],
+        "fill":[
+            "house",
+            "house"
+        ],
+        "coin":[1,0],
+        "cost":1
+    },
+
+    {
+        "name":"Forgotten Forest",
+        "url":"10.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [0, 1, 0],
+                [0, 0, 0]
+            ],
+
+            [
+                [1, 0, 0], 
+                [1, 1, 0],
+                [0, 1, 0]
+            ]
+        ],
+        "fill":[
+            "forest",
+            "forest"
+        ],
+        "coin":[1,0],
+        "cost":1
+    },
+
+    {
+        "name":"Hinterland Stream",
+        "url":"11.jpg",
+        "shape":[
+            [
+                [1, 1, 1], 
+                [1, 0, 0],
+                [1, 0, 0]
+            ],
+
+            [
+                [1, 1, 1], 
+                [1, 0, 0],
+                [1, 0, 0]
+            ]
+        ],
+        "fill":[
+            "field",
+            "water"
+        ],
+        "coin":[0,0],
+        "cost":2
+    },
+
+    {
+        "name":"Homestead",
+        "url":"12.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [1, 1, 0],
+                [1, 0, 0]
+            ],
+
+            [
+                [1, 0, 0], 
+                [1, 1, 0],
+                [1, 0, 0]
+            ]
+        ],
+        "fill":[
+            "house",
+            "field"
+        ],
+        "coin":[0,0],
+        "cost":2
+    },
+
+    {
+        "name":"Orchard",
+        "url":"13.jpg",
+        "shape":[
+            [
+                [1, 1, 1], 
+                [0, 0, 1],
+                [0, 0, 0]
+            ],
+
+            [
+                [1, 1, 1], 
+                [0, 0, 1],
+                [0, 0, 0]
+            ]
+        ],
+        "fill":[
+            "forest",
+            "field"
+        ],
+        "coin":[0,0],
+        "cost":2
+    },
+
+    {
+        "name":"Treetop Village",
+        "url":"14.jpg",
+        "shape":[
+            [
+                [0, 0, 1, 1], 
+                [1, 1, 1, 0]
+            ],
+
+            [
+                [0, 0, 1, 1], 
+                [1, 1, 1, 0]
+            ]
+        ],
+        "fill":[
+            "forest",
+            "house"
+        ],
+        "coin":[0,0],
+        "cost":2
+    },
+
+    {
+        "name":"Marshland",
+        "url":"15.jpg",
+        "shape":[
+            [
+                [1, 0, 0], 
+                [1, 1, 1],
+                [1, 0, 0]
+            ],
+
+            [
+                [1, 0, 0], 
+                [1, 1, 1],
+                [1, 0, 0]
+            ]
+        ],
+        "fill":[
+            "forest",
+            "water"
+        ],
+        "coin":[0,0],
+        "cost":2
+    },
+
+    {
+        "name":"Fishing Village",
+        "url":"16.jpg",
+        "shape":[
+            [
+                [1, 1, 1, 1]
+            ],
+
+            [
+                [1, 1, 1, 1]
+            ]
+        ],
+        "fill":[
+            "house",
+            "water"
+        ],
+        "coin":[0,0],
+        "cost":2
+    },
+
+    {
+        "name":"Rift Lands",
+        "url":"17.jpg",
+        "shape":[
+            [
+                [1]
+            ],
+            
+            [
+                [1]
+            ],
+
+            [
+                [1]
+            ],
+
+            [
+                [1]
+            ],
+
+            [
+                [1]
+            ]
+        ],
+        "fill":[
+            "forest",
+            "house",
+            "field",
+            "water",
+            "monster"
+        ],
+        "coin":[0,0],
+        "cost":2
+    }
+]
